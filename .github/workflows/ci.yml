@@ -24,5 +24,11 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
+      - name: Build CLI
+        run: bun run build
+
+      - name: Smoke test (Node)
+        run: node dist/cli.js --help
+
       - name: Test
         run: bun test

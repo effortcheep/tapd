@@ -1,18 +1,37 @@
 # tapd
 
-TAPD Open API 命令行工具与 TypeScript SDK，基于 [Bun](https://bun.com) 运行。
+TAPD Open API 命令行工具与 TypeScript SDK。
 
-## 安装
+## 一键安装（推荐）
+
+无需克隆仓库，安装 Node.js 18+ 后即可使用：
+
+```bash
+# npx（Node）
+npx @effortcheep/tapd-cli auth
+npx @effortcheep/tapd-cli iterations --limit 5
+
+# bunx（Bun）
+bunx @effortcheep/tapd-cli auth
+```
+
+全局安装：
+
+```bash
+npm install -g @effortcheep/tapd-cli
+tapd auth
+tapd iterations --name "Y26W23"
+```
+
+## 本地开发
+
+需要 [Bun](https://bun.com)：
 
 ```bash
 bun install
-bun link          # 可选，全局注册 tapd 命令
-```
-
-本地开发可直接运行：
-
-```bash
-bun cli.ts <command>
+bun run build      # 构建 dist/cli.js（npm 发布产物）
+bun link           # 可选，全局注册 tapd 命令
+bun cli.ts auth    # 或直接运行源码
 ```
 
 ## 快速开始

@@ -3,6 +3,8 @@
  * 认证说明：https://open.tapd.cn/document/api-doc/API%E6%96%87%E6%A1%A3/API%E9%85%8D%E7%BD%AE%E6%8C%87%E5%BC%95.html
  */
 
+import { loadDotEnv } from './load-dotenv.ts';
+
 export interface TapdConfig {
   baseURL: string;
   apiUser: string;
@@ -11,6 +13,7 @@ export interface TapdConfig {
 }
 
 export function loadConfig(): TapdConfig {
+  loadDotEnv();
   const apiUser = process.env.TAPD_API_USER?.trim();
   const apiPassword = process.env.TAPD_API_PASSWORD?.trim();
   const workspaceId = process.env.TAPD_WORKSPACE_ID?.trim();

@@ -1,5 +1,6 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
+import { loadDotEnv } from './load-dotenv.ts';
 import { AUTH_HELP, ITERATIONS_HELP, STORIES_HELP, TOP_HELP } from './cli/help.ts';
 
 function wantsHelp(args: string[]): boolean {
@@ -7,6 +8,7 @@ function wantsHelp(args: string[]): boolean {
 }
 
 export async function run(args: string[]): Promise<number> {
+  loadDotEnv();
   if (args.length === 0 || (args.length === 1 && wantsHelp(args))) {
     console.log(TOP_HELP);
     return 0;
